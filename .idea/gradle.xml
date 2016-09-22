@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/patched" />
+            <option value="$PROJECT_DIR$/SemcCameraUI-xxhdpi" />
             <option value="$PROJECT_DIR$/source" />
           </set>
         </option>

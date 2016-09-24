@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         // Android Gradle plugins:
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:1.2.3'
         // DexPatcher Gradle plugins:
         classpath 'com.github.lanchon.dexpatcher:dexpatcher-gradle:0.2.0'
     }
@@ -16,8 +16,5 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        flatDir {
-            dirs "$rootProject.projectDir/libs"
-        }
     }
 }

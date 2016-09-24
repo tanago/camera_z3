@@ -93,10 +93,7 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="dexpatcher-annotation-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="com.sonyericsson.cameraextension_impl" level="project" />
-    <orderEntry type="library" exported="" name="1_com.sonyericsson.cameraextension_impl" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="mockable-android-23" level="project" />
-    <orderEntry type="module" module-name="com.sonyericsson.cameraextension_impl" exported="" />
     <orderEntry type="module" module-name="source" exported="" />
     <orderEntry type="library" exported="" name="source-unspecified" level="project" />
   </component>

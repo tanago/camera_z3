@@ -75,6 +75,6 @@ dependencies {
     //    exclude module: 'support-v4'
     //}
     //    compile files()
-    compile files('lib/com.sonyericsson.cameraextension_impl.jar')
-    compile project(':com.sonyericsson.cameraextension_impl')
+//    compile files('lib/com.sonyericsson.cameraextension_impl.jar')
+//    compile project(':com.sonyericsson.cameraextension_impl')
 }

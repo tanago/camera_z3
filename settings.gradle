@@ -1,1 +1,1 @@
-include ':source', ':SemcCameraUI-xxhdpi', ':com.sonyericsson.cameraextension_impl'
+include ':source', ':SemcCameraUI-xxhdpi'

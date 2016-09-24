@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SemcCameraUI-xxhdpi" />
+            <option value="$PROJECT_DIR$/com.sonyericsson.cameraextension_impl" />
             <option value="$PROJECT_DIR$/source" />
           </set>
         </option>

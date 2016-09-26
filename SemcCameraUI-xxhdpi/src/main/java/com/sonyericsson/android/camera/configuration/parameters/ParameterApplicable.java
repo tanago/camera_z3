@@ -77,6 +77,7 @@ public interface ParameterApplicable {
 
     void set(WhiteBalance var1);
 
-    @DexAdd
     void set(ShutterSpeed shutterSpeed);
+
+    void set(CameraMode cameraMode);
 }

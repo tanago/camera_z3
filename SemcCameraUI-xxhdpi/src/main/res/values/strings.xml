@@ -6,20 +6,28 @@
     <string name="cam_strings_iso_80_txt">80</string>
     <string name="cam_strings_iso_125_txt">125</string>
     <string name="cam_strings_iso_160_txt">160</string>
+
     <string name="cam_strings_shutter_speed_title_txt">Shutter Speed</string>
-    <string name="cam_strings_shutter_speed_0_txt">0</string>
-    <string name="cam_strings_shutter_speed_1_txt">1</string>
-    <string name="cam_strings_shutter_speed_2_txt">2</string>
-    <string name="cam_strings_shutter_speed_3_txt">3</string>
-    <string name="cam_strings_shutter_speed_4_txt">4</string>
-    <string name="cam_strings_shutter_speed_5_txt">5</string>
-    <string name="cam_strings_shutter_speed_6_txt">6</string>
-    <string name="cam_strings_shutter_speed_7_txt">7</string>
-    <string name="cam_strings_shutter_speed_8_txt">8</string>
-    <string name="cam_strings_shutter_speed_9_txt">9</string>
-    <string name="cam_strings_shutter_speed_10_txt">10</string>
-    <string name="cam_strings_shutter_speed_11_txt">11</string>
-    <string name="cam_strings_shutter_speed_12_txt">12</string>
+    <string name="cam_strings_shutter_speed_0_txt">1s</string>
+    <string name="cam_strings_shutter_speed_1_txt">1/2s</string>
+    <string name="cam_strings_shutter_speed_2_txt">1/4s</string>
+    <string name="cam_strings_shutter_speed_3_txt">1/8s</string>
+    <string name="cam_strings_shutter_speed_4_txt">1/16s</string>
+    <string name="cam_strings_shutter_speed_5_txt">1/32s</string>
+    <string name="cam_strings_shutter_speed_6_txt">1/62s</string>
+    <string name="cam_strings_shutter_speed_7_txt">1/125s</string>
+    <string name="cam_strings_shutter_speed_8_txt">1/250s</string>
+    <string name="cam_strings_shutter_speed_9_txt">1/500s</string>
+    <string name="cam_strings_shutter_speed_10_txt">1/1000s</string>
+    <string name="cam_strings_shutter_speed_11_txt">1/2000s</string>
+    <string name="cam_strings_shutter_speed_12_txt">1/5000s</string>
+
+    <string name="cam_strings_camera_modes_title_txt">Camera Mode</string>
+    <string name="cam_strings_camera_mode_auto_txt">Auto</string>
+    <string name="cam_strings_camera_mode_iso_prio_txt">ISO Priority</string>
+    <string name="cam_strings_camera_mode_shutter_prio_txt">Shutter Priority</string>
+    <string name="cam_strings_camera_mode_manual_txt">Manual</string>
+
 
 
     <!--

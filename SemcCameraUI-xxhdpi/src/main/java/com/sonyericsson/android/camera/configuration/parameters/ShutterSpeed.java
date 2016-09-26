@@ -8,6 +8,7 @@ import com.tanago.camera.R;
  */
 
 public enum ShutterSpeed implements ParameterValue {
+    //SHUTTER_SPEED_AUTO(-1, R.string.cam_strings_settings_auto_txt, -1),
     SHUTTER_SPEED0(-1, R.string.cam_strings_shutter_speed_0_txt, 0),
     SHUTTER_SPEED1(-1, R.string.cam_strings_shutter_speed_1_txt, 1),
     SHUTTER_SPEED2(-1, R.string.cam_strings_shutter_speed_2_txt, 2),
@@ -62,7 +63,7 @@ public enum ShutterSpeed implements ParameterValue {
 
     @Override
     public ParameterValue getRecommendedValue(ParameterValue[] parameterValues, ParameterValue parameterValue) {
-        return SHUTTER_SPEED0;
+        return SHUTTER_SPEED7;
     }
 
     @Override
@@ -73,5 +74,10 @@ public enum ShutterSpeed implements ParameterValue {
     @Override
     public String getValue() {
         return String.valueOf(this.mShutterSpeedValue);
+    }
+
+    public static ShutterSpeed[] getOptions(CapturingMode capturingMode) {
+        //TODO capturingMode impl
+        return values();
     }
 }

@@ -19,6 +19,7 @@ import com.sonyericsson.android.camera.configuration.ParameterSelectability;
 import com.sonyericsson.android.camera.configuration.parameters.AutoReview;
 import com.sonyericsson.android.camera.configuration.parameters.AutoUpload;
 import com.sonyericsson.android.camera.configuration.parameters.BurstShot;
+import com.sonyericsson.android.camera.configuration.parameters.CameraMode;
 import com.sonyericsson.android.camera.configuration.parameters.CapturingMode;
 import com.sonyericsson.android.camera.configuration.parameters.DestinationToSave;
 import com.sonyericsson.android.camera.configuration.parameters.Ev;
@@ -337,6 +338,12 @@ public abstract class CameraFunctions implements StoreDataCallback {
         @Override
         public void set(ShutterSpeed shutterSpeed) {
             CameraFunctions.this.mCameraDevice.setShutterSpeed(shutterSpeed);
+        }
+
+        @DexAdd
+        @Override
+        public void set(CameraMode cameraMode) {
+            CameraFunctions.this.mCameraDevice.setCameraMode(cameraMode);
         }
     }
 }

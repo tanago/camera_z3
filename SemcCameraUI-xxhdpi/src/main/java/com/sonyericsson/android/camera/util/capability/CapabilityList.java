@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
+
 import com.sonyericsson.android.camera.configuration.parameters.Hdr;
 import com.sonyericsson.android.camera.util.capability.BooleanCapabilityItem;
 import com.sonyericsson.android.camera.util.capability.CapabilityItem;
@@ -70,7 +71,9 @@ public class CapabilityList {
 
     public final CapabilityItem<String> MAX_SS;
     public final CapabilityItem<String> MIN_SS;
-    //public final CapabilityItem<> ;
+    public final CapabilityItem<String> SS_STEP;
+    public final CapabilityItem<String> SS_CURRENT;
+    public final CapabilityItem<String> ISO_CURRENT;
 
     public final CapabilityItem<Integer> MAX_AWB_AB;
     public final CapabilityItem<Integer> MAX_BURST_SHOT_FRAME_RATE;
@@ -142,7 +145,9 @@ public class CapabilityList {
 
         this.MAX_SS = new StringCapabilityItem("sony-max-shutter-speed", var2);
         this.MIN_SS = new StringCapabilityItem("sony-min-shutter-speed", var2);
-        //this.MIN_SS = new StringCapabilityItem("sony-min-shutter-speed", var2);
+        this.SS_STEP = new StringCapabilityItem("sony-shutter-speed-step", var2);
+        this.SS_CURRENT = new StringCapabilityItem("sony-shutter-speed", var2);
+        this.ISO_CURRENT = new StringCapabilityItem("sony-iso", var2);
 
         this.MAX_BURST_SHOT_FRAME_RATE = new IntegerCapabilityItem("sony-max-burst-shot-frame-rate", var2);
         this.MAX_BURST_SHOT_SIZE = new RectCapabilityItem("sony-max-burst-shot-size", var2);
@@ -169,7 +174,7 @@ public class CapabilityList {
         this.MAX_AWB_AB = new IntegerCapabilityItem("sony-max-awb-compensation-ab", var2);
         this.MIN_AWB_AB = new IntegerCapabilityItem("sony-min-awb-compensation-ab", var2);
         this.mValues = this.createList();
-        this.RESOLUTION_CAPABILITY = new ResolutionCapabilityItem(this.getResolutionOptions(var1, Hdr.isResolutionIndependentHdrSupported((List)this.SCENE.get())));
+        this.RESOLUTION_CAPABILITY = new ResolutionCapabilityItem(this.getResolutionOptions(var1, Hdr.isResolutionIndependentHdrSupported((List) this.SCENE.get())));
         this.UX_CAPABILITY = new UxCapabilityItem(new UxOptions(var1));
     }
 
@@ -203,7 +208,9 @@ public class CapabilityList {
 
         this.MAX_SS = new StringCapabilityItem("sony-max-shutter-speed", var2);
         this.MIN_SS = new StringCapabilityItem("sony-min-shutter-speed", var2);
-        //this.MIN_SS = new StringCapabilityItem("sony-min-shutter-speed", var2);
+        this.SS_STEP = new StringCapabilityItem("sony-shutter-speed-step", var2);
+        this.SS_CURRENT = new StringCapabilityItem("sony-shutter-speed", var2);
+        this.ISO_CURRENT = new StringCapabilityItem("sony-iso", var2);
 
         this.MAX_BURST_SHOT_FRAME_RATE = new IntegerCapabilityItem("sony-max-burst-shot-frame-rate", var2);
         this.MAX_BURST_SHOT_SIZE = new RectCapabilityItem("sony-max-burst-shot-size", var2);
@@ -230,30 +237,30 @@ public class CapabilityList {
         this.MAX_AWB_AB = new IntegerCapabilityItem("sony-max-awb-compensation-ab", var2);
         this.MIN_AWB_AB = new IntegerCapabilityItem("sony-min-awb-compensation-ab", var2);
         this.mValues = this.createList();
-        this.RESOLUTION_CAPABILITY = new ResolutionCapabilityItem(this.getResolutionOptions(var1, Hdr.isResolutionIndependentHdrSupported((List)this.SCENE.get())));
+        this.RESOLUTION_CAPABILITY = new ResolutionCapabilityItem(this.getResolutionOptions(var1, Hdr.isResolutionIndependentHdrSupported((List) this.SCENE.get())));
         this.UX_CAPABILITY = new UxCapabilityItem(new UxOptions(var1));
     }
 
     public static Rect convertCameraSize(Size var0) {
-        return var0 == null?null:new Rect(0, 0, var0.width, var0.height);
+        return var0 == null ? null : new Rect(0, 0, var0.width, var0.height);
     }
 
     public static List<Rect> convertCameraSizeList(List<Size> var0) {
         ArrayList var3;
-        if(var0 == null) {
+        if (var0 == null) {
             var3 = new ArrayList();
         } else {
             ArrayList var1 = new ArrayList();
             Iterator var2 = var0.iterator();
 
-            while(true) {
+            while (true) {
                 var3 = var1;
-                if(!var2.hasNext()) {
+                if (!var2.hasNext()) {
                     break;
                 }
 
-                Size var4 = (Size)var2.next();
-                if(var4 != null) {
+                Size var4 = (Size) var2.next();
+                if (var4 != null) {
                     var1.add(convertCameraSize(var4));
                 }
             }
@@ -316,7 +323,9 @@ public class CapabilityList {
         var1.add(this.MIN_AWB_AB);
         var1.add(this.MAX_SS);
         var1.add(this.MIN_SS);
-//        var1.add(this.MIN_SS);
+        var1.add(this.SS_STEP);
+        var1.add(this.SS_CURRENT);
+        var1.add(this.ISO_CURRENT);
         return var1;
     }
 
@@ -324,22 +333,22 @@ public class CapabilityList {
         int var5 = this.getMaxPictureSize();
         int var3 = 0;
         int var4 = 0;
-        switch(var5) {
+        switch (var5) {
             case 3264:
-                Iterator var6 = ((List)this.VIDEO_SIZE.get()).iterator();
+                Iterator var6 = ((List) this.VIDEO_SIZE.get()).iterator();
 
-                while(true) {
+                while (true) {
                     var4 = var3;
-                    if(!var6.hasNext()) {
+                    if (!var6.hasNext()) {
                         break;
                     }
 
-                    var4 = ((Rect)var6.next()).height();
-                    if(var4 == 1080) {
+                    var4 = ((Rect) var6.next()).height();
+                    if (var4 == 1080) {
                         break;
                     }
 
-                    if(var4 == 720) {
+                    if (var4 == 720) {
                         var3 = var4;
                     }
                 }
@@ -349,13 +358,13 @@ public class CapabilityList {
     }
 
     public int getMaxPictureSize() {
-        List var2 = (List)this.PICTURE_SIZE.get();
+        List var2 = (List) this.PICTURE_SIZE.get();
         int var1 = 0;
         Iterator var4 = var2.iterator();
 
-        while(var4.hasNext()) {
-            Rect var3 = (Rect)var4.next();
-            if(var1 < var3.width()) {
+        while (var4.hasNext()) {
+            Rect var3 = (Rect) var4.next();
+            if (var1 < var3.width()) {
                 var1 = var3.width();
             }
         }

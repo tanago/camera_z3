@@ -57,7 +57,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: '*.jar')
     // To produce a patched application we need to import an apk library created from the
     // app we want to modify. In this case we import the artifact produced by the 'source'
     // subproject. But the library could be produced by an independent project and imported
@@ -74,7 +74,4 @@ dependencies {
     // app using DexPatcher package annotations.
     //    exclude module: 'support-v4'
     //}
-    //    compile files()
-//    compile files('lib/com.sonyericsson.cameraextension_impl.jar')
-//    compile project(':com.sonyericsson.cameraextension_impl')
 }

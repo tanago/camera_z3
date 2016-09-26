@@ -66,22 +66,22 @@ public enum Iso implements ParameterValue {
     public static Iso[] getOptions(CapturingMode mode, Resolution resolution) {
         CapabilityList list = HardwareCapability.getCapability(mode.getCameraId());
 
-        CapabilityItem[] test = {list.MAX_SS,list.MIN_SS,list.AE,list.HDR};
+        CapabilityItem[] test = {list.VIDEO_NR_VALUES, list.MAX_VIDEO_FRAME, list.METERING, list.HDR, list.FOCUS_MODE, list.MAX_NUM_FOCUS_AREA, list.FOCUS_AREA , list.MAX_MULTI_FOCUS_AREAS , list.MULTI_FOCUS_RECTS};
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(Environment.getExternalStorageDirectory().getPath() + "/cameratest.txt"));
             for(CapabilityItem capabilityItem : test){
-                bufferedWriter.write(capabilityItem.get() + " " + capabilityItem.getName() + "\n");
+                bufferedWriter.write(capabilityItem.getName() + " " + capabilityItem.get() + "\n");
             }
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+//
         List<String> supportedISOs = list.ISO.get();
         Iso[] availableISOs = Iso.values();
         List<Iso> options = new ArrayList<>();
-        options.add(ISO_AUTO);
+        //options.add(ISO_AUTO);
         for (Iso availableISO : availableISOs) {
             if (supportedISOs.contains(String.valueOf(availableISO.getIsoValue()))) {
                 options.add(availableISO);
@@ -132,7 +132,7 @@ public enum Iso implements ParameterValue {
 
     @DexIgnore
     public ParameterValue getRecommendedValue(ParameterValue[] var1, ParameterValue var2) {
-        return ISO_AUTO;
+        return ISO_400;
     }
 
     @DexIgnore

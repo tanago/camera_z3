@@ -32,6 +32,7 @@ public enum ParameterKey {
     FOCUS_MODE(true, false, ParameterCategory.CAPTURING_MODE, 2131296538),
     GEO_TAG(true, true, ParameterCategory.COMMON, 2131296542),
     HDR(true, false, ParameterCategory.CAPTURING_MODE, 2131296555),
+    SHUTTER_SPEED(true, false, ParameterCategory.CAPTURING_MODE, R.string.cam_strings_shutter_speed_title_txt),
     ISO(true, false, ParameterCategory.CAPTURING_MODE, 2131296812),
     METERING(true, false, ParameterCategory.CAPTURING_MODE, 2131296595),
     MICROPHONE(true, false, ParameterCategory.CAPTURING_MODE, 2131296566),
@@ -56,7 +57,8 @@ public enum ParameterKey {
     SEMI_AUTO(false, false, ParameterCategory.CAPTURING_MODE, 0),
     GRID_LINE(true, true, ParameterCategory.COMMON, 2131296550),
     VIDEO_CODEC(true, false, ParameterCategory.CAPTURING_MODE, 2131296720),
-    SHUTTER_SPEED(true, false, ParameterCategory.CAPTURING_MODE, R.string.cam_strings_shutter_speed_title_txt);
+
+    CAMERA_MODE(true, false, ParameterCategory.CAPTURING_MODE, R.string.cam_strings_camera_modes_title_txt);
 
     public static final String TAG = "ParameterKey";
     private final ParameterCategory mCategory;
@@ -85,25 +87,15 @@ public enum ParameterKey {
 
     @DexIgnore
     public String getTitleText(Context var1) {
-        switch (this.ordinal()) {
-            case 3:
-                return ResourceUtil.getApplicationLabel(var1, "com.sonymobile.touchblocker");
-            default:
-                return null;
-        }
-
+        if (this==TOUCH_BLOCK)return ResourceUtil.getApplicationLabel(var1, "com.sonymobile.touchblocker");
+        else return null;
     }
 
     @DexIgnore
     public int getTitleTextId(CapturingMode var1) {
-        switch(this.ordinal()){
-            case 1:
-                return Flash.getParameterKeyTitleTextId();
-            case 2:
-                return VideoStabilizer.getParameterKeyTitleText(var1.getCameraId());
-            default:
-                return this.mTitleTextId;
-        }
+        if(this==FLASH) return Flash.getParameterKeyTitleTextId();
+        else if(this==VIDEO_STABILIZER) return VideoStabilizer.getParameterKeyTitleText(var1.getCameraId());
+        else return this.mTitleTextId;
     }
 
     @DexIgnore
